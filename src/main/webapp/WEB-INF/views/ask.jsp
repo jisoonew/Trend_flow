@@ -1,23 +1,23 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HomePage</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>문의사항</title>
 
-  <!-- 부트 스트랩 연결 -->
+      <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-  </script>
+  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!-- 부트스트랩 CSS만 붙여왔을 때는 드롭다운이 작동을 안함, 그래서 부트스르탭 번들 코드를 붙여넣으니까 작동함 -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-
 <body style="background-color: rgb(255, 255, 255);">
 
   <!-- 네비게이션 바 -->
@@ -55,8 +55,6 @@
               <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
               <hr class="dropdown-divider">
 
-              <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
-              <hr class="dropdown-divider"> -->
 
               <li><a class="dropdown-item" href="cosmetic.nhn">전체보기</a></li>
             </ul>
@@ -89,11 +87,10 @@
       <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg></button>
-
     </div>
   </nav>
 
-  <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
+   <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header" style="background-color:rgb(247, 157, 157) ;">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">My Page</h5>
@@ -141,28 +138,138 @@
           </form>
   </div>
 </div>
+ <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
 
-<br>
-<br>
+    <br>
+    <br>
 
-    <!-- 상단바 아래의 컨텐츠 부분 -->
-    <div class="container">
-      <div class="row">
-
-              <h2>찜 목록     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" style="float: right ;">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-              </svg></h2>
-
-            <hr>
-      </div>
-      <br>
-      
-      <div class="row">
-          <div class="col">
-
-
+        <!-- 상단바 아래의 컨텐츠 부분 -->
+        <div class="container">
+          <!-- <hr class="myHr">  -->
+          <div class="row">
+              <div class="col-7">
+                  <h2>문의 사항</h2>
+                </div>
           </div>
+          <br>
+          
+         
+          <div class="row">
+              <div class="col">
+                  <table class="table table-hover mytb" id="announceTable">
+                          <thead class="table-light">
+                              <thead>
+                                
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">작성자</th>
+                                  <th scope="col">제목</th>
+                                  <th scope="col">작성일</th>
+                              </tr>
+                              </thead>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <!-- <td>1</td>
+                              <td>긴급!! 꼭 봐주세요</td>
+                              <td></td>
+                              <td></td>
+                              <td>우지은</td>
+                              <td>jieun987</td>
+                              <td>관리자</td>
+                            </tr> -->
+                          </tbody>
+                          
+                        </table>
+              </div>
+          </div>
+          <br>
+          <br>
+        
+          <!-- 게시판 페이지 부분 폼 => 한 페이지당 10명씩 한번에 5페이지, 양쪽 끝 버튼은 맨 처음과 맨 끝으로 이동 -->
+
+          
+          <!-- 화면에 그려질 첫 번째 페이지 : 화면에 그려질 마지막 페이지 - (한 화면에 나타낼 페이지 - 1)
+          (단, 계산된 값이 0 이하이면 첫번째 페이지는 1이다.)
+        
+        화면에 그려질 마지막 페이지 : 화면에 보여질 페이지 그룹 * 한 화면에 나타낼 페이지
+          (단, 계산된 값이 총 페이지수보다 많으면 마지막 페이지는 은 총 페이지 수이다.) -->
+
+          </nav>
+
+          <a class="#" href="wirteAsk.html" style="text-decoration-line: none ;">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+              <!-- <button class="btn btn-primary me-md-2" type="button">Button</button> -->
+              <button class="btn btn-primary btn-danger" type="button">문의하기</button>
+            </div>
+            </a>   
+
       </div>
+      
+
+      </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
   
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyD5Siv5pV8pGTXpgd8OAMdQd8JTp390u5w",
+      authDomain: "newrepbook-587cf.firebaseapp.com",
+      databaseURL: "https://newrepbook-587cf-default-rtdb.firebaseio.com",
+      projectId: "newrepbook-587cf",
+      storageBucket: "newrepbook-587cf.appspot.com",
+      messagingSenderId: "986136626008",
+      appId: "1:986136626008:web:bdd8f7beeceae8f66c5b2d",
+      measurementId: "G-C25WXHVHZE"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+
+    import {getDatabase, ref, set, update, remove, onValue}
+    from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+
+    //$('#adminListDbTable td').remove();
+    //console.log("test")
+    var rowNum = 0;
+
+    const db = getDatabase(app);
+    const dbref = ref(db, 'announce');
+
+    onValue(dbref, (snapshot) => {
+      snapshot.forEach((childSnapshot) => {
+        const childKey = childSnapshot.key;
+        const childData = childSnapshot.val();
+
+        rowNum += 1;
+        var row =
+        "<tr><td>" + rowNum +
+          "</td><td>" + childData.title +
+            // "</td><td>" + childData.comment +
+              "</td><td>" + "관리자" +
+              "</td></tr>"
+              console.log(row);
+
+        $(row).appendTo('#announceTable')
+
+      });
+    }, {
+      onlyOnce: true
+    });
+
+
+  </script> -->
+
 </body>
 </html>

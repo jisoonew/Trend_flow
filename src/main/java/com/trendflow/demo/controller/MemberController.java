@@ -1,14 +1,13 @@
-package com.example.demo.test;
+package com.trendflow.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
-public class Test {
+public class MemberController {
 
 	@RequestMapping(value="/")
-	public String test() {
-		return "login";
+	public String Join() {
+		return "join";
 	}
 }

@@ -1,20 +1,27 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>신제품</title>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HomePage</title>
 
-      <!-- 부트 스트랩 연결 -->
+  <!-- 부트 스트랩 연결 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-  integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<!-- 부트스트랩 CSS만 붙여왔을 때는 드롭다운이 작동을 안함, 그래서 부트스르탭 번들 코드를 붙여넣으니까 작동함 -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
+
 <body style="background-color: rgb(255, 255, 255);">
 
   <!-- 네비게이션 바 -->
@@ -69,10 +76,10 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="FAQ.nhn">FAQ</a></li>
+              <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
                 <hr class="dropdown-divider">
 
-              <li><a class="dropdown-item" href="announce.nhn">공지사항</a></li>
+              <li><a class="dropdown-item" href="announce.html">공지사항</a></li>
               <hr class="dropdown-divider">
 
               <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
@@ -80,24 +87,17 @@
 
           </li>
 
-        <!-- <a id="main_name" style="text-decoration-line: none; color:black" class="mx-4"></a>
-
-        <a href="admin_login.html" style="color: white ;">
-          <form class="d-flex" role="logout">
-            <button id="logoutmenu" type="button" class="btn btn-light">로그아웃</button>
-          </form>
-        </a> -->
-
       </div>
 
       <!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
       <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg></button>
+
     </div>
   </nav>
 
-   <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
+  <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
   <div class="offcanvas-header" style="background-color:rgb(247, 157, 157) ;">
     <h5 class="offcanvas-title" id="offcanvasRightLabel">My Page</h5>
@@ -145,51 +145,30 @@
           </form>
   </div>
 </div>
- <!-- ==================================== 여기까지 상단 네비게이션 바 내용이였음 ======================================== -->
 
- <nav class="navbar navbar-expand-lg bg-danger bg-opacity-50 justify-content-center" >
-  <ul class="nav justify-content-center">
-    <li class="nav-item dropdown">
-
-      <li class="nav-item">
-        <a class="nav-link link-dark active" aria-current="page" href="#">ALL</a>
-      </li>
-
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        EYE
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Eye Shadow</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Eye Liner</a></li>
-      </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        LIP
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tint</a></li>
-      </ul>
-    </li>
-
-  </ul>
-</nav>
-
-
-<h3>신제품 페이지</h3>
-<!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
 <br>
 <br>
 
+    <!-- 상단바 아래의 컨텐츠 부분 -->
+    <div class="container">
+      <!-- <hr class="myHr">  -->
+      <div class="row">
+
+              <h2>장바구니     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16" style="float: right;">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg></h2>
+              
+
+            <hr>
       </div>
+      <br>
       
-         
-      </div>
-      </div>
-    </div>
-  </nav>
+      <div class="row">
+          <div class="col">
 
+
+          </div>
+      </div>
+  
 </body>
 </html>

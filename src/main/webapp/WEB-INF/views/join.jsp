@@ -74,10 +74,10 @@
 
 		<!-- /LoginAndJoincontrol을 이용해서 회원가입 시도 -->
 		<form method="post" action="joincontrol">
-			<h1 style="text-align: center;">회원가입</h1>
+		
+		<img id="join_person" src="img/join_person.png">
 
-			<p></p>
-
+			<label id="join_text">회원가입</label>
 
 				<label for="name">Id</label> 
 				

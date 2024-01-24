@@ -1,0 +1,139 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/hanna.css);
+
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+	font-family: 'Nanum Gothic'; /* 글씨체 지정 */
+}
+
+body {
+	background-color: #9AB0D7; /* 배경색 지정 */
+	color: #fff;
+}
+
+/* "회원가입" */
+#join_text {
+	display: flex; /* flex or inline-flex  설정 */
+	justify-content: center; /* 가로(수평) 방향 중앙을 설정 */
+	font-family: 'Hanna';
+	font-weight: 500;
+	font-size: 30px;
+	position: relative; /* 상대 위치 지정 */
+}
+
+/* "회원가입"의 선 긋기 */
+#join_text::before, #join_text::after {
+  content: "";
+  position: absolute; /* 절대 위치 지정 */
+  width: 100px;
+  height: 2px; /* 선의 굵기 */
+  background-color: #fff; /* 선의 색상 설정 */
+  margin: 0 0 25px 0;
+  bottom: -5px; /* 글자와 선 사이의 간격 조절 */
+}
+
+#join_text::before {
+  left: 0px; /* 맨 왼쪽에 위치 */
+}
+
+#join_text::after {
+  right: 0px; /* 맨 오른쪽에 위치 */
+}
+
+thread th {
+	background-color: #006DCC;
+	color: white;
+	text-align: center;
+}
+
+img {
+	display: block; /* 이미지를 block 요소로 설정 */
+	margin: 0 auto; /* 수평 중앙 정렬 */
+	width: 130px;
+	height: 130px;
+	margin-bottom: 15px;
+}
+
+tr td:first-child, tr th:first-child {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+tr td:last-child, tr th:last-child {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+h5 {
+	font-family: 'Nanum Sans KR';
+}
+
+h3 {
+	font-family: 'Hanna' ';
+}
+
+h2 {
+	font-family: 'Hanna' ';
+}
+
+.vertical-alignment-helper {
+	display: table;
+	height: 100%;
+	width: 100%;
+	pointer-events: none;
+}
+
+.vertical-align-center {
+	display: table-cell;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.modal-content {
+	height: inherit;
+	width: inherit;
+	margin: 0 auto;
+	pointer-events: none;
+}
+
+.container {
+	width: 350px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.TextButton {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.Address {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+/* 중복체크 버튼에 margin 주기 */
+#ID_btn {
+	margin: 0px 0px 0px 5px;
+}
+
+/* 우편번호 텍스트에 margin 주기 */
+#zipNo {
+	margin: 0 100px 0 0;
+}
+
+/* 주소 텍스트에 margin 주기 */
+#address {
+	margin: 5px 0 0 0;
+}
+
+/* 상세주소 텍스트에 margin 주기 */
+#addrDetail {
+	margin: 5px 0 0 0;
+}

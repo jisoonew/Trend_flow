@@ -1,10 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HomePage</title>
 
   <!-- 부트 스트랩 연결 -->
@@ -58,7 +62,7 @@
               <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
               <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="cosmetic.nhn">전체보기</a></li>
+              <li><a class="dropdown-item" href="allPro.html">전체보기</a></li>
             </ul>
 
           </li>
@@ -149,8 +153,9 @@
     <div class="container">
       <div class="row">
 
-              <h2>찜 목록     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" style="float: right ;">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+              <h2>구매내역     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-credit-card" viewBox="0 0 16 16" style="float: right;">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v1h14V4a1 1 0 0 0-1-1H2zm13 4H1v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V7z"/>
+                <path d="M2 10a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1v-1z"/>
               </svg></h2>
 
             <hr>
@@ -159,7 +164,7 @@
       
       <div class="row">
           <div class="col">
-
+            
 
           </div>
       </div>

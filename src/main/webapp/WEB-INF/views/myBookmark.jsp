@@ -1,10 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HomePage</title>
 
   <!-- 부트 스트랩 연결 -->
@@ -147,40 +151,19 @@
 
     <!-- 상단바 아래의 컨텐츠 부분 -->
     <div class="container">
-      <!-- <hr class="myHr">  -->
       <div class="row">
-          <div class="col-7">
-              <h2>내 정보</h2>
-            </div>
+
+              <h2>찜 목록     <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16" style="float: right ;">
+                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+              </svg></h2>
+
             <hr>
       </div>
       <br>
       
       <div class="row">
           <div class="col">
-            <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-              <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-              <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-            </svg>
-            <!-- 실명 아니고 회원가입 할 때 나오는 아이디로 표시 -->
-            <label class=" ms-4 " style=" font-size: 25px;">kswied님</label>
-            <br>
-            <br>
-            <hr>
 
-            <label class="ms-3" style="font-size: 25px ;">아이디 :</label>
-            <hr>
-
-            <label class="ms-3" style="font-size: 25px ;">비밀번호 :</label>
-            <hr>
-
-            <label class="ms-3" style="font-size: 25px ;">배송지 :</label>
-            <button type="button" class="btn btn-light bg-danger justify-content-md-end" style="color: white ; float: right;">배송지 변경</button>
-            <hr>
-
-            <form class="d-flex justify-content-md-end" role="logout">
-              <button id="logout" type="button" class="btn btn-light bg-danger" style="color: white ;">탈퇴하기</button>
-            </form>
 
           </div>
       </div>
