@@ -31,11 +31,11 @@
     <br>
 
     <div class="#">
-      <div class="#">
-
         <label for="email">Id:</label>
-        <input type="text" class="form-control " id="id" name="id">
-      </div>
+        <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <button class="btn btn-outline-secondary" type="button" id="id">Button</button>
+</div>
 
       <br>
 
@@ -52,7 +52,7 @@
 
       <button type="submit" id="loginmenu" class="btn btn-warning login">로그인</button>
 
-       <a href="join.html" style="text-decoration-line: none;">
+       <a href="/join" style="text-decoration-line: none;">
       <button type="button" id="joinmenu" class="btn btn-warning ">회원가입</button>
       </a>
 

@@ -19,27 +19,52 @@ body {
 	justify-content: center; /* 가로(수평) 방향 중앙을 설정 */
 	font-family: 'Hanna';
 	font-weight: 500;
-	font-size: 30px;
+	font-size: 25px;
 	position: relative; /* 상대 위치 지정 */
 }
 
 /* "회원가입"의 선 긋기 */
 #join_text::before, #join_text::after {
-  content: "";
-  position: absolute; /* 절대 위치 지정 */
-  width: 100px;
-  height: 2px; /* 선의 굵기 */
-  background-color: #fff; /* 선의 색상 설정 */
-  margin: 0 0 25px 0;
-  bottom: -5px; /* 글자와 선 사이의 간격 조절 */
+	content: "";
+	position: absolute; /* 절대 위치 지정 */
+	width: 100px;
+	height: 2px; /* 선의 굵기 */
+	background-color: #fff; /* 선의 색상 설정 */
+	margin: 0 0 22px 0; /* 선 높이 조절 */
+	bottom: -5px; /* 글자와 선 사이의 간격 조절 */
 }
 
 #join_text::before {
-  left: 0px; /* 맨 왼쪽에 위치 */
+	left: 0px; /* 맨 왼쪽에 위치 */
 }
 
 #join_text::after {
-  right: 0px; /* 맨 오른쪽에 위치 */
+	right: 0px; /* 맨 오른쪽에 위치 */
+}
+
+/* 아이디 중복 체크 버튼 */
+#idCheck_btn {
+	background-color: #5974BD;
+	color: #fff;
+}
+
+/* 주소 검색 버튼 */
+#address_btn {
+	background-color: #5974BD;
+	color: #fff;
+}
+
+/* 이메일 인증 버튼 */
+#email_btn {
+	background-color: #5974BD;
+	color: #fff;
+}
+
+/* 회원가입 버튼 */
+#join_btn {
+	width: 100%;
+	background-color: #5974BD;
+	color: #fff;
 }
 
 thread th {
@@ -48,12 +73,13 @@ thread th {
 	text-align: center;
 }
 
+/* 회원가입 이미지  */
 img {
 	display: block; /* 이미지를 block 요소로 설정 */
 	margin: 0 auto; /* 수평 중앙 정렬 */
-	width: 130px;
-	height: 130px;
-	margin-bottom: 15px;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 5px;
 }
 
 tr td:first-child, tr th:first-child {
@@ -98,29 +124,19 @@ h2 {
 	pointer-events: none;
 }
 
+/* 가장 상위 div 요소 */
 .container {
 	width: 350px;
 	position: absolute;
-	top: 50%;
+	top: 49%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-}
-
-.TextButton {
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
 }
 
 .Address {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-}
-
-/* 중복체크 버튼에 margin 주기 */
-#ID_btn {
-	margin: 0px 0px 0px 5px;
 }
 
 /* 우편번호 텍스트에 margin 주기 */
