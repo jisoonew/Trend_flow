@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.trendflow.demo.dto.memberDto;
-import com.trendflow.demo.entity.member;
+import com.trendflow.demo.entity.Member;
 import com.trendflow.demo.repository.MemberRepository;
 import com.trendflow.demo.service.memberService;
 
@@ -51,17 +51,18 @@ public class MemberController {
 	}
 	
 	@PostMapping({"/" ,"/join"})
-	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResultt, member member) {
+	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResultt, Member member) {
 		if(bindingResultt.hasErrors()) {
 			return "join";
 		}
 		// 인코딩을 안하고 회원가입을 하게되면 비밀번호가 그냥 노출된채로 DB에 삽입되기때문에
 		// 시큐리티 로그인을 사용하지 못하게 된다.
+		member.setRole("ROLE_USER");
 		String rawPassword = member.getPassword();
 		String encPassword = passwordEncoder.encode(rawPassword);
 		member.setPassword(encPassword);
 		
-		memberRepository.save(member);	
+		memberRepository.save(member);
 		
 		return "redirect:/login";
 	}

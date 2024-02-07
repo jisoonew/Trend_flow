@@ -19,25 +19,37 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-@Table(name="MEMBER")
+@Table(name = "MEMBER")
 @Data
-public class member {
+public class Member {
 
 	@Id
-	private String id;
+	@Column(name = "id")
+	private String userId;
 
-	private String user_name;
-	
+	@Column(name = "user_name")
+	private String userName;
+
 	private String email;
 
 	private String password;
-	
+
 	private String cell_phone;
 
-	/* private String role; */
+	private String role;
 
-	 @Column(name = "createdate")
-	 @CreationTimestamp 
-	 private Timestamp createDate;
-	 
+	@Column(name = "createdate")
+	@CreationTimestamp
+	private Timestamp createDate;
+
+	// 우편번호
+	private String zipcode;
+
+	// 주소
+	@Column(name = "STREETADR")
+	private String streetAdr;
+
+	// 상세 주소
+	@Column(name = "DETAILADR")
+	private String detailAdr;
 }

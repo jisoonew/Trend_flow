@@ -25,11 +25,11 @@ public class memberDto {
 
 	@NotBlank(message = "아이디를 입력해주세요.")
 	@Pattern(regexp = "[a-zA-Z0-9]{5,20}", message = "아이디는 영문, 숫자만 가능하며 5 ~ 20자리까지 가능합니다.")
-	private String id;
+	private String userId;
 
 	@NotBlank(message = "이름을 입력해주세요.")
 	@Pattern(regexp = "^[ㄱ-ㅎ가-힣a-z0-9-_]{2,5}$", message = "이름은 최대 5자까지 입력 가능합니다.")
-	private String user_name;
+	private String userName;
 
 	@NotBlank(message = "이메일은 필수 입력 값입니다.")
 	private String email;
@@ -48,9 +48,9 @@ public class memberDto {
 	private Timestamp createDate;
 
 	@Builder
-	public memberDto(String id, String user_name, String email, String password, String cell_phobne, Timestamp createDate) {
-		this.id = id;
-		this.user_name = user_name; 
+	public memberDto(String userId, String userName, String email, String password, String cell_phobne, Timestamp createDate) {
+		this.userId = userId;
+		this.userName = userName; 
 		this.email = email; 
 		this.password = password;
 		this.cell_phone = cell_phobne; 

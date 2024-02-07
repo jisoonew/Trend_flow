@@ -25,7 +25,7 @@
 
   <!-- 로그인 폼 시작 -->
   <div class="container w-25 position-absolute top-50 start-50 translate-middle">
-  <form method="post" action="userlogin">
+  <form method="post" action="/login">
     <h1 style="text-align: center;">로그인</h1>
 
     <br>
@@ -33,15 +33,14 @@
     <div class="#">
         <label for="email">Id:</label>
         <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-  <button class="btn btn-outline-secondary" type="button" id="id">Button</button>
+  <input type="text" name="userId" class="form-control" placeholder="ID" aria-describedby="button-addon2">
 </div>
 
       <br>
 
       <div class="#">
         <label for="pwd">Password:</label>
-        <input type="password" class="form-control" id="password" name="password">
+        <input type="password" name="password" class="form-control" id="password" name="password">
         <!-- <label>6글자 이상 입력해주세요</label> -->
       </div>
     </div>

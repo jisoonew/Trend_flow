@@ -86,20 +86,20 @@
 
 			<label>Name</label>
 			<br>
-			<form:input type="text" class="form-control" name="user_name"
-				path="user_name" placeholder="이름을 입력해주세요" />
-			<form:errors path="user_name" cssClass="error" />
+			<form:input type="text" class="form-control" name="userName"
+				path="userName" placeholder="이름을 입력해주세요" />
+			<form:errors path="userName" cssClass="error" />
 			<p></p>
 
 			<label for="name">Id</label>
 <div class="input-group">
-    <form:input type="text" name="id" placeholder="아이디를 입력해주세요"
-                class="form-control" path="id" aria-label="Recipient's username"
+    <form:input type="text" name="userId" placeholder="아이디를 입력해주세요"
+                class="form-control" path="userId" aria-label="Recipient's username"
                 aria-describedby="button-addon2" />
     <button class="btn btn-outline-secondary" type="button"
             id="idCheck_btn" onclick="registerCheckFunction();">중복</button>
 </div>
-    <form:errors path="id" cssClass="error" />
+    <form:errors path="userId" cssClass="error" />
 
 
 

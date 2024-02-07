@@ -23,7 +23,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.anyRequest().permitAll()
 			.and()
 			.formLogin()
-			.loginPage("/login");
+			.loginPage("/login")
+			.usernameParameter("userId") // 로그인 jsp의 name과 PrincipalDetailsService의 loadUserByUsername의 매개변수 일치하기 위함.
+			.loginProcessingUrl("/login")
+			.defaultSuccessUrl("/");
 	}
 
 	@Bean
