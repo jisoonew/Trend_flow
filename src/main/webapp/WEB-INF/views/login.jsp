@@ -24,23 +24,19 @@
   https://velog.io/@zl0zb/spring-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A7%8C%EB%93%A4%EA%B8%B0-1 -->
 
   <!-- 로그인 폼 시작 -->
-  <div class="container w-25 position-absolute top-50 start-50 translate-middle">
+  <div class="container">
   <form method="post" action="/login">
     <h1 style="text-align: center;">로그인</h1>
 
     <br>
 
-    <div class="#">
-        <label for="email">Id:</label>
-        <div class="input-group mb-3">
-  <input type="text" name="userId" class="form-control" placeholder="ID" aria-describedby="button-addon2">
-</div>
+    <div>
+        <label id="idLabel">아이디</label>
+  <input type="text" name="userId" class="form-control" id="idText" placeholder="아이디를 입력해 주세요.">
 
-      <br>
-
-      <div class="#">
-        <label for="pwd">Password:</label>
-        <input type="password" name="password" class="form-control" id="password" name="password">
+      <div>
+        <label id="pwLabel">비밀번호</label>
+        <input type="password" name="password" class="form-control" id="passwordText" placeholder="비밀번호를 입력해 주세요.">
         <!-- <label>6글자 이상 입력해주세요</label> -->
       </div>
     </div>

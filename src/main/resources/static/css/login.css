@@ -6,10 +6,6 @@
 	font-family: 'Nanum Gothic';
 }
 
-body {
-	background-color: rgb(243, 228, 168);
-}
-
 thread th {
 	background-color: #006DCC;
 	color:white;
@@ -43,6 +39,27 @@ h1 {
 	font-family: 'Hanna'';
 }
 
+#idLabel {
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+
+#idText {
+	height: 50px;
+	margin-bottom: 20px;
+	width: 100%; /* 폼 너비를 100%로 설정 */
+}
+
+#pwLabel {
+	margin-bottom: 5px;
+	font-weight: 600;
+}
+
+#passwordText {
+	height: 50px;
+	width: 100%; /* 폼 너비를 100%로 설정 */
+}
+
 .vertical-alignment-helper {
 	display: table;
 	height: 100%;
@@ -64,7 +81,8 @@ h1 {
 }
 
 .container {
-		width: 300px;
+	width: 400px; /* 고정된 너비 설정 */
+    height: 400px; /* 고정된 높이 설정 */
     position: absolute;
     top:50%;
     left:50%;

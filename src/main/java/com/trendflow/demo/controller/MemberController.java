@@ -9,6 +9,8 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -72,6 +74,11 @@ public class MemberController {
 		return "admin";
 		}
 	
+	@GetMapping("/user")
+	public @ResponseBody String user() {
+		return "user";
+	}
+	
 	@GetMapping("/manager")
 	public @ResponseBody String manager() {
 		return "manager";
@@ -80,5 +87,17 @@ public class MemberController {
 	@GetMapping("/login")
 	public String login() {
 		return "login";
+	}
+	
+	@Secured("ROLE_ADMIN")
+	@GetMapping("/info")
+	public @ResponseBody String info() {
+		return "개인정보";
+	}
+	
+	@PreAuthorize("hasRole('ROLE_MANAGER') or hasRole('ROLE_ADMIN')")
+	@GetMapping("/data")
+	public @ResponseBody String data() {
+		return "데이터 정보";
 	}
 }
