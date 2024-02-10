@@ -47,12 +47,12 @@ public class MemberController {
 	@Autowired
 	private memberService memberservice;
 	
-	@GetMapping({"/", "/join"})
+	@GetMapping("/join")
 	public String joinForm(@ModelAttribute("memberDto") memberDto memberDto) {
 		return "join";
 	}
 	
-	@PostMapping({"/" ,"/join"})
+	@PostMapping("/join")
 	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResultt, Member member) {
 		if(bindingResultt.hasErrors()) {
 			return "join";

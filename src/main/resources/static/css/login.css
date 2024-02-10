@@ -39,6 +39,21 @@ h1 {
 	font-family: 'Hanna'';
 }
 
+
+#joinBtn {
+    margin-top: -20px;
+}
+
+#joinBtn {
+	width: 100%;
+	height: 50px;
+}
+
+#loginBtn {
+	width: 100%;
+	height: 50px;
+}
+
 #idLabel {
 	margin-bottom: 5px;
 	font-weight: 600;

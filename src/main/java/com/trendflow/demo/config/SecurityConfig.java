@@ -19,6 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests()
+			.antMatchers("/mainHome/**").permitAll()
 			.antMatchers("/user/**").authenticated()
 			.antMatchers("/manager/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
 			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
@@ -28,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.loginPage("/login")
 			.usernameParameter("userId") // 로그인 jsp의 name과 PrincipalDetailsService의 loadUserByUsername의 매개변수 일치하기 위함.
 			.loginProcessingUrl("/login")
-			.defaultSuccessUrl("/");
+			.defaultSuccessUrl("/mainHome");
 	}
 
 	@Bean

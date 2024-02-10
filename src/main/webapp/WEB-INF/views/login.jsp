@@ -43,12 +43,10 @@
     <br>
     <br>
 
-    <div style="text-align: center;">
+      <button type="submit" id="loginBtn" class="btn btn-warning">로그인</button>
 
-      <button type="submit" id="loginmenu" class="btn btn-warning login">로그인</button>
-
-       <a href="/join" style="text-decoration-line: none;">
-      <button type="button" id="joinmenu" class="btn btn-warning ">회원가입</button>
+       <a href="/join">
+      <button type="button" id="joinBtn" class="btn btn-warning ">회원가입</button>
       </a>
 
     <br>
@@ -56,7 +54,7 @@
 
     <label>아이디가 기억나지 않으십니까?</label><a href="findID.jsp"><label class="ms-2" style="color:rgb(48, 188, 253);">아이디 찾기</label></a>
     <label>비밀번호가 기억나지 않으십니까?</label><a href="findPW.jsp"><label class="ms-2" style="color:rgb(48, 188, 253);">비밀번호 찾기</label></a>
-    </div>
+
     </form>
    </div>
    
