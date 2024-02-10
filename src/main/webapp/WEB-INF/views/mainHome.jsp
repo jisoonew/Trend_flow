@@ -10,8 +10,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <link rel="stylesheet" href="css/mainHome_login.css">
+  <link rel="stylesheet" href="css/mainHome.css">
   
   <title>TrendFlow</title>
 
@@ -23,15 +22,7 @@
   </script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
-
-function logoutPro() {
-	alert("로그아웃 되었습니다.");
-	location.href="logout.jsp";
-}
-
-</script>
+  <script src="${pageContext.request.contextPath}/js/mainHome.js"></script>
 </head>
 
 <body style="background-color: rgb(255, 255, 255);">
@@ -42,7 +33,7 @@ function logoutPro() {
 
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
       <a class="navbar-brand" href="main_home.html">
-        <img src="img/로고.png" width="200" height="70">
+        <img src="img/logo_remove.png" id="logo_remove">
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -99,9 +90,10 @@ function logoutPro() {
           </li>
       </div>
       
-      <label id="nickname"><c:out value="${sessionScope.userName}" /></label>
+      <label id="userName_label"><c:out value="${sessionScope.userName}" /></label>
 
       <!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
+      <!-- 로그인을 하지 않은 상태면 로그인 버튼으로 출력하고 로그인을 한 상태라면 내 정보 버튼으로 출력 -->
       <% if((boolean) request.getAttribute("loginInfo")) { %> 
       <button class="btn btn-primary btn-danger" onclick="Not_login();" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="mybtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
@@ -125,7 +117,7 @@ function logoutPro() {
       <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
       <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
     </svg>
-    <label id="nickname"><c:out value="${sessionScope.userName}" /></label>
+    <label id="userName_label"><c:out value="${sessionScope.userName}" /></label>
     <a href="myData" style="color: black;">
     <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
       <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
@@ -157,8 +149,8 @@ function logoutPro() {
     </a>
     </div>
     <hr>
-          <form class="d-flex position-absolute bottom-0 end-0 mb-4 me-4" role="logout">
-            <button id="logout" type="button" class="btn btn-light bg-danger" style="color: white ;" onclick="logoutPro();">로그아웃</button>
+          <form action="/Logout" method="post">
+            <button id="logout" type="submit" class="btn btn-light bg-danger" style="color: white ;" onclick="logout();">로그아웃</button>
           </form>
   </div>
 </div>

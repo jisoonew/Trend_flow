@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 public class MainController {
 	
 	// 메인 홈
-	@GetMapping("/mainHome")
+	@GetMapping("/Trend_flow")
 	public String Main(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model, HttpServletResponse response, HttpSession session) {
 		response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
 		response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
@@ -27,15 +27,17 @@ public class MainController {
 
 		// 로그인 상태라면 
 	    if (principalDetails != null) {
-	    // 세션을 사용한 이유 : 클라이언트와 서버 간의 상태를 유지하는 데 사용됨.
+	    	// 세션을 사용한 이유 : 클라이언트와 서버 간의 상태를 유지하는 데 사용됨.
 	    	session.setAttribute("userName", principalDetails.getUsername()+"님");
+	    	// 로그인 유무
 	    	model.addAttribute("loginInfo", true);
-	        return "/mainHome";
+	        return "mainHome";
 	    } else {
 	    	model.addAttribute("loginInfo", false);
-	    	return "/mainHome";
+	    	return "mainHome";
 	    }
 	}
+
 	
 	// 내 정보
 	@GetMapping("/myData")

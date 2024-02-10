@@ -8,8 +8,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.trendflow.demo.entity.Member;
 
+// 사용자의 상세 정보와 권한 정보를 담고 있음.
 public class PrincipalDetails implements UserDetails {
 	
+//	사용자 정보를 담고 있음.
 	private Member member;
 	
 	public PrincipalDetails(Member member) {
@@ -20,6 +22,7 @@ public class PrincipalDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Collection<GrantedAuthority> collect = new ArrayList<>();
 		collect.add(new GrantedAuthority() {
+//			사용자의 권한 정보를 반환
 			@Override
 			public String getAuthority() {
 				return member.getRole();

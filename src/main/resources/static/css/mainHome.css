@@ -1,0 +1,10 @@
+/* 화면 상단의 사용자 이름 */
+#userName_label {
+	margin: 0 10px 0 0;
+}
+
+/* 로고 이미지 */
+#logo_remove {
+	width: 200px;
+	height: 50px;
+}
