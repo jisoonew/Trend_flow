@@ -56,11 +56,12 @@ public class MemberController {
 	}
 	
 	@PostMapping("/join")
-	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResult, Member member, Model model) {
-		
-		// 회원가입 유효성 검사에서 오류가 나거나, DB의 중복 아이디를 사용할 경우
-	    if(bindingResult.hasErrors() || memberRepository.existsById(member.getUserId())) {
-	        return "join";
+	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResult, Member member, Model model, String confirmPassword) {
+
+		// 회원가입 유효성 검사에서 오류가 나거나, DB의 중복 아이디를 사용할 경우 또는 비밀번호가 일치하지 않을 경우 회원 가입이 되지 않는다.
+	    if(bindingResult.hasErrors() || memberRepository.existsById(member.getUserId()) || !memberDto.getPassword().equals(memberDto.getConfirmPassword())) {
+	    	bindingResult.rejectValue("confirmPassword", "error.member", "비밀번호가 일치하지 않습니다.");
+	    	return "join";
 	    } else {
 	        // 인코딩을 안하고 회원가입을 하게되면 비밀번호가 그냥 노출된채로 DB에 삽입되기때문에
 	        // 시큐리티 로그인을 사용하지 못하게 된다.

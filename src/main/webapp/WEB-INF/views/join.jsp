@@ -34,7 +34,7 @@
 		class="container w-10 position-absolute top-10 start-10 translate-middle">
 
 		<!-- /LoginAndJoincontrol을 이용해서 회원가입 시도 -->
-		<form:form method="POST" action="/join" modelAttribute="memberDto">
+		<form:form method="POST" action="/join" modelAttribute="memberDto" onsubmit="return validatePassword()">
 
 			<img id="join_img" src="img/join_person.png">
 
@@ -71,15 +71,17 @@
 
 <label for="pwd">Check Password</label>
 <input type="password" class="form-control" id="password2"
-    name="password2"
+    name="confirmPassword"
     placeholder="비밀번호 확인을 입력해주세요">
 
 <!-- 비밀번호 중복 체크 문구 -->
 <div id="passwordCheckMessage"></div>
 
+<!-- 비밀번호가 일치하지 않는다면 에러 문구 출력 -->
+<form:errors path="confirmPassword" cssClass="error" /> <br>
+
 <!-- 서버에서 발생한 에러 메시지 -->
 <form:errors path="password" cssClass="error" />
-
 
 			<p></p>
 

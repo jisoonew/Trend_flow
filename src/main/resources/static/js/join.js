@@ -22,7 +22,7 @@ $(document).ready(function() {
 var passwordCheckMessage = $('#passwordCheckMessage').text();           
 
 // 비밀번호 중복 확인
-$('#password2').blur(function() {
+/*$('#password2').blur(function() {
     var password = $('#password1').val();
     var check_password = $('#password2').val();
     
@@ -32,7 +32,19 @@ $('#password2').blur(function() {
     } else {
         $('#passwordCheckMessage').html('비밀번호가 일치합니다.').css('color', 'blue');
     }
-});
+});*/
+
+
+function validatePassword() {
+            var password = document.getElementById("password1").value;
+            var confirmPassword = document.getElementById("password2").value;
+
+            if (password != confirmPassword) {
+                alert("Passwords do not match");
+                return false;
+            }
+            return true;
+        }
 
 });
 
