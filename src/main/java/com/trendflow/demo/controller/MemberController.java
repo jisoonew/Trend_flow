@@ -22,8 +22,11 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -53,21 +56,31 @@ public class MemberController {
 	}
 	
 	@PostMapping("/join")
-	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResultt, Member member) {
-		if(bindingResultt.hasErrors()) {
-			return "join";
-		}
-		// 인코딩을 안하고 회원가입을 하게되면 비밀번호가 그냥 노출된채로 DB에 삽입되기때문에
-		// 시큐리티 로그인을 사용하지 못하게 된다.
-		member.setRole("ROLE_USER");
-		String rawPassword = member.getPassword();
-		String encPassword = passwordEncoder.encode(rawPassword);
-		member.setPassword(encPassword);
+	public String join(@ModelAttribute("memberDto") @Valid memberDto memberDto, BindingResult bindingResult, Member member, Model model) {
 		
-		memberRepository.save(member);
-		
-		return "redirect:/login";
+		// 회원가입 유효성 검사에서 오류가 나거나, DB의 중복 아이디를 사용할 경우
+	    if(bindingResult.hasErrors() || memberRepository.existsById(member.getUserId())) {
+	        return "join";
+	    } else {
+	        // 인코딩을 안하고 회원가입을 하게되면 비밀번호가 그냥 노출된채로 DB에 삽입되기때문에
+	        // 시큐리티 로그인을 사용하지 못하게 된다.
+	        member.setRole("ROLE_USER");
+	        String rawPassword = member.getPassword();
+	        String encPassword = passwordEncoder.encode(rawPassword);
+	        member.setPassword(encPassword);
+	        
+	        memberRepository.save(member);
+	        
+	        return "redirect:/login";
+	    }
 	}
+
+	
+	@GetMapping("/user-id/{userId}/exists")
+	public ResponseEntity<Boolean> checkUserId(@PathVariable String userId, Member member) {
+		return ResponseEntity.ok(memberservice.checkUserId(userId));
+	}
+	
 	
 	@GetMapping("/admin")
 	public @ResponseBody String admin() {

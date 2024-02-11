@@ -13,6 +13,14 @@ body {
 	color: #fff;
 }
 
+#idAvailable {
+	color: green;
+}
+
+#idNotAvailable {
+	color: red;
+}
+
 .error {
 	color: red;
 	font-size: 12.5px;
@@ -142,11 +150,6 @@ h2 {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-}
-
-/* 우편번호 텍스트에 margin 주기 */
-#zipNo {
-	margin: 0 100px 0 0;
 }
 
 /* 주소 텍스트에 margin 주기 */

@@ -7,11 +7,16 @@ import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
+import com.trendflow.demo.repository.MemberRepository;
+
 import lombok.AllArgsConstructor;
 
 @Service
 @AllArgsConstructor
 public class memberService {
+	
+	MemberRepository memberRepository;
+	
 	// 회원가입 시, 유효성 체크
     public Map<String, String> validateHandling(Errors errors) {
         Map<String, String> validatorResult = new HashMap<>();
@@ -22,5 +27,9 @@ public class memberService {
         }
 
         return validatorResult;
+    }
+    
+    public boolean checkUserId(String userId) {
+    	return memberRepository.existsById(userId); // DB에 존재하는지 확인
     }
 }

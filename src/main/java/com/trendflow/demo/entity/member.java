@@ -24,7 +24,7 @@ import javax.persistence.*;
 public class Member {
 
 	@Id
-	@Column(name = "id")
+	@Column(name = "id", unique = true)
 	private String userId;
 
 	@Column(name = "user_name")

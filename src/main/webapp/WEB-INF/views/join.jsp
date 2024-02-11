@@ -21,53 +21,9 @@
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"
 	integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa"
 	crossorigin="anonymous"></script>
-	
+
 <script type="text/javascript" src="./js/join.js"></script>
 
-<script type="text/javascript">
-        // 아이디 중복 체크를 위한 ajax 시작
-        function registerCheckFunction() {
-            var id = $('#id').val();
-            $
-                .ajax({
-                    type : 'POST',
-                    url : './JoinCheckController',
-                    data : {
-                        id : id
-                    },
-                    success : function(result) {
-                        if (result == 1) {
-                            $('#checkMessage').html('사용할 수 있는 아이디입니다.');
-                            $('#checkType').attr('class',
-                                'modal-content panel-success');
-                            $('#idCheckMessage').html('사용 가능한 아이디입니다.');
-                            document.getElementById("idCheckMessage").style.color = "blue";
-                        } else {
-                            $('#checkMessage').html('사용할 수 없는 아이디입니다.');
-                            $('#checkType').attr('class',
-                                'modal-content panel-warning');
-                            $('#idCheckMessage').html('사용할 수 없는 아이디입니다.');
-                            document.getElementById("idCheckMessage").style.color = "red";
-                        }
-                        $('#checkModal').modal("show");
-                    }
-                })
-        }
-        //아이디 중복 체크를 위한 ajax 끝
-
-        function passwordCheckFunction() {
-            var password = $('#password1').val();
-            var check_password = $('#password2').val();
-            if (password != check_password) {
-                $('#passwordCheckMessage').html('비밀번호가 서로 일치하지 않습니다.');
-                document.getElementById("passwordCheckMessage").style.color = "red";
-            }
-            if (password == check_password) {
-                $('#passwordCheckMessage').html('비밀번호가 일치합니다.');
-                document.getElementById("passwordCheckMessage").style.color = "blue";
-            }
-        }
-    </script>
 </head>
 <body>
 
@@ -86,50 +42,51 @@
 
 			<label>Name</label>
 			<br>
-			<form:input type="text" class="form-control" name="userName"
+			<form:input type="text" class="form-control" name="userName" id="userName"
 				path="userName" placeholder="이름을 입력해주세요" />
 			<form:errors path="userName" cssClass="error" />
 			<p></p>
 
 			<label for="name">Id</label>
-<div class="input-group">
-    <form:input type="text" name="userId" placeholder="아이디를 입력해주세요"
-                class="form-control" path="userId" aria-label="Recipient's username"
-                aria-describedby="button-addon2" />
-    <button class="btn btn-outline-secondary" type="button"
-            id="idCheck_btn" onclick="registerCheckFunction();">중복</button>
-</div>
-    <form:errors path="userId" cssClass="error" />
+			<div class="input-group">
+				<form:input type="text" name="userId" id="userId"
+					placeholder="아이디를 입력해주세요" class="form-control" path="userId" />
+			</div>
 
-
-
-			<!-- 아이디 체크 버튼 -->
-			<h5 id="idCheckMessage"></h5>
+			<!-- 아이디 중복 확인 -->
+			<form:errors path="userId" cssClass="error" />
+			
+			<!-- 아이디 중복 여부를 나타내는 메시지를 출력할 요소들 -->
+<div id="idAvailable" style="display: none; color: blue;">이 아이디는 사용 가능합니다.</div>
+<div id="idNotAvailable" style="display: none; color: red;">이미 사용중인 아이디입니다.</div>
 
 			<p></p>
 
-			<label for="pwd">Password</label>
-			<form:input type="password" class="form-control" id="password1"
-				path="password" name="password" onkeyup="passwordCheckFunction();"
-				placeholder="비밀번호를 입력해주세요" />
+<label for="pwd">Password</label>
+<form:input type="password" class="form-control" id="password1"
+    path="password" name="password"
+    placeholder="비밀번호를 입력해주세요" />
 
-			<form:errors path="password" cssClass="error" />
-			<p></p>
+<p></p>
 
-			<label for="pwd">Check Password</label>
-			<input type="password" class="form-control" id="password2"
-				name="password2" onkeyup="passwordCheckFunction();"
-				placeholder="비밀번호 확인을 입력해주세요">
+<label for="pwd">Check Password</label>
+<input type="password" class="form-control" id="password2"
+    name="password2"
+    placeholder="비밀번호 확인을 입력해주세요">
 
-			<!-- 비밀번호 중복 체크 문구 -->
-			<h5 id="passwordCheckMessage"></h5>
+<!-- 비밀번호 중복 체크 문구 -->
+<div id="passwordCheckMessage"></div>
+
+<!-- 서버에서 발생한 에러 메시지 -->
+<form:errors path="password" cssClass="error" />
+
 
 			<p></p>
 
 			<label for="email">Email address</label>
 			<div class="input-group">
 				<form:input type="text" placeholder="이메일을 입력해주세요"
-					class="form-control" path="email" aria-label="Recipient's username"
+					class="form-control" path="email" id="email"
 					aria-describedby="button-addon2" />
 				<button class="btn btn-outline-secondary" type="button"
 					id="email_btn">인증</button>
@@ -140,8 +97,9 @@
 			<p></p>
 
 			<label for="email">Cell Phone</label>
-			<form:input type="text" class="form-control" id="cell_phone" oninput="autoHyphen(this)" maxlength="13"
-				path="cell_phone" name="cell_phone" placeholder="핸드폰 번호를 입력해주세요" />
+			<form:input type="text" class="form-control" id="cell_phone"
+				oninput="autoHyphen(this)" maxlength="13" path="cell_phone"
+				name="cell_phone" placeholder="핸드폰 번호를 입력해주세요" />
 
 			<form:errors path="cell_phone" cssClass="error" />
 			<p></p>
@@ -150,13 +108,14 @@
 
 			<div class="Address">
 
-				<div class="input-group mb-3">
-					<input type="text" name="zipNo" required readonly
-						placeholder="우편 번호" class="form-control"
-						aria-label="Recipient's username" aria-describedby="button-addon2">
-					<button class="btn btn-outline-secondary" type="button"
-						id="address_btn" onclick="goPopup();">주소 검색</button>
-				</div>
+				<div class="input-group">
+    <input type="text" name="zipNo" required readonly
+        placeholder="우편 번호" class="form-control" id="zipNo"
+        aria-label="Recipient's username" aria-describedby="button-addon2">
+    <button class="btn btn-outline-secondary" type="button"
+        id="address_btn" onclick="goPopup();">주소 검색</button>
+</div>
+
 			</div>
 
 			<input type="text" class="form-control" id="address" name="address"
@@ -192,29 +151,29 @@
 
 	<!-- 주소 검색 팝업 -->
 	<script>
-    // opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
-    //document.domain = "abc.go.kr";
+		// opener관련 오류가 발생하는 경우 아래 주석을 해지하고, 사용자의 도메인정보를 입력합니다. ("팝업API 호출 소스"도 동일하게 적용시켜야 합니다.)
+		//document.domain = "abc.go.kr";
 
-    function goPopup() {
-        // 주소검색을 수행할 팝업 페이지를 호출합니다.
-        // 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
-        var pop = window.open("spring2/../address/jusoPopup.jsp", "pop",
-            "width=570,height=420, scrollbars=yes, resizable=yes");
+		function goPopup() {
+			// 주소검색을 수행할 팝업 페이지를 호출합니다.
+			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+			var pop = window.open("spring2/../address/jusoPopup.jsp", "pop",
+					"width=570,height=420, scrollbars=yes, resizable=yes");
 
-        // 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
-        //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes");
-    }
+			// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(https://business.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+			//var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes");
+		}
 
-    function jusoCallBack(roadAddrPart1, addrDetail, zipNo) {
-        // 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-        var addressEl = document.querySelector("#address");
-        var addrDetailEl = document.querySelector("#addrDetail");
-        var zipNoEl = document.querySelector("#zipNo");
-        addressEl.value = roadAddrPart1;
-        addrDetailEl.value = addrDetail;
-        zipNoEl.value = zipNo;
+		function jusoCallBack(roadAddrPart1, addrDetail, zipNo) {
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			var addressEl = document.querySelector("#address");
+			var addrDetailEl = document.querySelector("#addrDetail");
+			var zipNoEl = document.querySelector("#zipNo");
+			addressEl.value = roadAddrPart1;
+			addrDetailEl.value = addrDetail;
+			zipNoEl.value = zipNo;
 
-    }
-</script>
+		}
+	</script>
 </body>
 </html>
