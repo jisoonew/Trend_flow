@@ -25,27 +25,19 @@
   <script src="${pageContext.request.contextPath}/js/mainHome.js"></script>
 </head>
 
-<body style="background-color: rgb(255, 255, 255);">
-
+<body>
+	
   <!-- 네비게이션 바 -->
   <nav class="navbar navbar-expand-lg navbar-light bg-danger bg-opacity-25 navbar-fixed-top">
     <div class="container-fluid">
-
       <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
+      <a class="navbar-brand" href="/Trend_flow">
         <img src="img/logo_remove.png" id="logo_remove">
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <!-- Home 버튼 -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="mainHome_login.jsp">Home</a>
-          </li>
 
           <!-- 화장품 드롭다운 -->
           <li class="nav-item dropdown">
@@ -88,6 +80,7 @@
               <li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
             </ul>
           </li>
+          </ul>
       </div>
       
       <label id="userName_label"><c:out value="${sessionScope.userName}" /></label>
@@ -95,14 +88,13 @@
       <!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
       <!-- 로그인을 하지 않은 상태면 로그인 버튼으로 출력하고 로그인을 한 상태라면 내 정보 버튼으로 출력 -->
       <% if((boolean) request.getAttribute("loginInfo")) { %> 
-      <button class="btn btn-primary btn-danger" onclick="Not_login();" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="mybtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+      <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" id="mybtn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
         <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
       </svg></button>
       <% } else { %>
-      <button class="btn" onclick="location.href='login'">로그인</button>
+      <button type="button" class="btn btn-outline-primary" onclick="location.href='login'">로그인</button>
       <% } %>
       
-
     </div>
   </nav>
 
@@ -155,7 +147,44 @@
   </div>
 </div>
    <!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
-  <img src="img/화장품2.jpg" class="w-100 h-auto"; >
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="img/man_women.jpg" class="d-block w-100" alt="..." id="carousel_img">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/loafer.jpg" class="d-block w-100" alt="..." id="carousel_img">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="img/dress.jpg" class="d-block w-100" alt="..." id="carousel_img">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
   <!-- 최신 레시피 캐러셀 -->
   <!-- <h3 style="color:black; text-align: center;">

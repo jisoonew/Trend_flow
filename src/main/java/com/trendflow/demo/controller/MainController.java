@@ -45,7 +45,6 @@ public class MainController {
 	    }
 	}
 
-	
 	// 내 정보
 	@GetMapping("/myData")
 	public String myData(@AuthenticationPrincipal PrincipalDetails principalDetails, HttpSession session) {

@@ -33,8 +33,6 @@ public class Member {
 	private String email;
 
 	private String password;
-	
-	private String confirmPassword;
 
 	private String cell_phone;
 

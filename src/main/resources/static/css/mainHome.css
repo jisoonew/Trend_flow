@@ -5,6 +5,17 @@
 
 /* 로고 이미지 */
 #logo_remove {
-	width: 200px;
-	height: 50px;
+	width: 170px;
+	height: 40px;
+}
+
+/* 캐러셀 */
+#carouselExampleCaptions {
+	width: 1000px;
+	height: 540px;
+}
+
+#carousel_img {
+	height: 540px;
+	width: 800px;
 }
