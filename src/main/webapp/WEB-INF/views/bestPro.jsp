@@ -17,89 +17,106 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+  
+  <link rel="stylesheet" href="css/bestPro.css">
+<script src="${pageContext.request.contextPath}/js/bestPro.js"></script>
 </head>
-<body style="background-color: rgb(255, 255, 255);">
+<body>
+
+<!-- 전체 상품 회색 배경 -->
+<div id="all_Product_Bar_backgound"></div>
+
+<!-- 전체 상품 리스트 -->
+<div id="all_Product_Bar"></div>
 
   <!-- 네비게이션 바 -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-danger bg-opacity-25 navbar-fixed-top">
-    <div class="container-fluid">
+	<nav class="navbar navbar-expand-lg navbar-light navbar-fixed-top" id="navbar">
+		<div class="container-fluid">
+			<!-- 로고 사진 누르면 홈으로 돌아오기 -->
+			<a class="navbar-brand" href="/Trend_flow"> <img
+				src="img/logo_remove.png" id="logo_remove">
+			</a>
 
-      <!-- 로고 사진 누르면 홈으로 돌아오기 -->
-      <a class="navbar-brand" href="main_home.html">
-        <img src="img/로고.png" width="200" height="70">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+			<!-- Home 버튼 -->
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<!-- 화장품 드롭다운 -->
+					<li class="nav-item dropdown"><a
+						class="nav-link" id="allProductBtn" role="button" aria-expanded="false"> 전체 </a>
+							</li>
+							
+					<li class="nav-item dropdown"><a
+						class="nav-link" href="bestPro" id="navbarDropdown"
+						role="button" aria-expanded="false">
+							BEST </a>
+							</li>
+					
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							화장품 </a>
 
-      <!-- Home 버튼 -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="Main_Home.jsp">Home</a>
-          </li>
+						<ul class="dropdown-menu" id="dropdown-menu-tab" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="/newPro">신제품</a></li>
+							<hr class="dropdown-divider">
 
-          <!-- 화장품 드롭다운 -->
-          <li class="nav-item dropdown">
+							<li><a class="dropdown-item" href="/bestPro">인기상품</a></li>
+							<hr class="dropdown-divider">
 
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              화장품
-            </a>
-
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="newPro.html">신제품</a></li>
-              <hr class="dropdown-divider">
-
-              <li><a class="dropdown-item" href="bestPro.html">인기상품</a></li>
-              <hr class="dropdown-divider">
-
-              <!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
+							<!-- <li><a class="dropdown-item" href="#">카테고리</a></li>
               <hr class="dropdown-divider"> -->
 
-              <li><a class="dropdown-item" href="cosmetic.nhn">전체보기</a></li>
-            </ul>
+							<li><a class="dropdown-item" href="cosmetic.nhn">전체보기</a></li>
+						</ul>
+					</li>
 
-          </li>
+					<!-- 고객 서비스 드롭다운 -->
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+						role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							고객 서비스 </a>
 
-          <!-- 고객 서비스 드롭다운 -->
-          <li class="nav-item dropdown">
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="FAQ.nhn">FAQ</a></li>
+							<hr class="dropdown-divider">
 
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              고객 서비스
-            </a>
+							<li><a class="dropdown-item" href="announce.nhn">공지사항</a></li>
+							<hr class="dropdown-divider">
 
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="/FAQ.nhn">FAQ</a></li>
-                <hr class="dropdown-divider">
+							<li><a class="dropdown-item" href="ask.jsp">문의사항</a></li>
+						</ul></li>
+				</ul>
+			</div>
+			
+			<!-- 이름 출력 -->
+			<label id="userName_label"><c:out value="${sessionScope.userName}" /></label>
+			
+<!-- 검색창 -->
+<div class="input-group" id="search">
+  <input type="text" class="form-control" aria-describedby="button-addon2">
+  <button class="btn btn-dark" type="button" id="button-addon2">검색</button>
+</div>
 
-              <li><a class="dropdown-item" href="/announce.nhn">공지사항</a></li>
-              <hr class="dropdown-divider">
+			<!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
+			<!-- 로그인을 하지 않은 상태면 로그인 버튼으로 출력하고 로그인을 한 상태라면 내 정보 버튼으로 출력 -->
+			<% if((boolean) request.getAttribute("loginInfo")) { %>
+			<button class="btn btn-primary btn-danger" type="button"
+				data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
+				aria-controls="offcanvasRight" id="mybtn">
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+					fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+						d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+      </svg>
+			</button>
+			<% } else { %>
+			<button type="button" class="btn btn-outline-primary"
+				onclick="location.href='login'">로그인</button>
+			<% } %>
 
-              <li><a class="dropdown-item" href="ask.html">문의사항</a></li>
-            </ul>
-
-          </li>
-
-        <!-- <a id="main_name" style="text-decoration-line: none; color:black" class="mx-4"></a>
-
-        <a href="admin_login.html" style="color: white ;">
-          <form class="d-flex" role="logout">
-            <button id="logoutmenu" type="button" class="btn btn-light">로그아웃</button>
-          </form>
-        </a> -->
-
-      </div>
-
-      <!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
-      <button class="btn btn-primary btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
-      </svg></button>
-    </div>
-  </nav>
+		</div>
+	</nav>
+	
 
    <!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -150,39 +167,30 @@
   </div>
 </div>
  <!-- ==================================== 여기까지 상단 네비게이션 바 내용이였음 ======================================== -->
+<div id="categotyContainer">
+<div>홈 > 베스트</div>
 
- <nav class="navbar navbar-expand-lg bg-danger bg-opacity-50 justify-content-center" >
-  <ul class="nav justify-content-center">
-
-    <li class="nav-item">
-      <a class="nav-link link-dark active" aria-current="page" href="#">ALL</a>
-    </li>
-
-    <li class="nav-item dropdown">
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        EYE
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Eye Shadow</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#">Eye Liner</a></li>
-      </ul>
-    </li>
-
-    <li class="nav-item dropdown">
-      <a class="nav-link link-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        LIP
-      </a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Tint</a></li>
-      </ul>
-    </li>
-
-
-  </ul>
-</nav>
-
-<h3>인기 상품 페이지</h3>
+ <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+  <li class="category-nav-item" role="presentation">
+    <button class="nav-link categoryBtn active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">전체</button>
+  </li>
+  <li class="category-nav-item" role="presentation">
+    <button class="nav-link categoryBtn" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">기초</button>
+  </li>
+  <li class="category-nav-item" role="presentation">
+    <button class="nav-link categoryBtn" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">메이크업</button>
+  </li>
+  <li class="category-nav-item" role="presentation">
+    <button class="nav-link categoryBtn" id="pills-final-tab" data-bs-toggle="pill" data-bs-target="#pills-final" type="button" role="tab" aria-controls="pills-final" aria-selected="false">바디/헤어</button>
+  </li>
+</ul>
+<div class="tab-content" id="pills-tabContent">
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">첫번째 페이지</div>
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">두번째</div>
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">세번쨰</div>
+  <div class="tab-pane fade" id="pills-final" role="tabpanel" aria-labelledby="pills-final-tab" tabindex="0">...</div>
+</div>
+</div>
 <!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
 <br>
 

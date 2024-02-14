@@ -1,7 +1,3 @@
-// 로그아웃
-function logout() {
-	location.href="/logout";
-}
 
 $(document).ready(function () {
 $("#all_Product_Bar_backgound").hide();
