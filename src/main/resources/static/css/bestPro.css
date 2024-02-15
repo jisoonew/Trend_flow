@@ -15,6 +15,7 @@
 	height: 40px;
 }
 
+/* 검색창 */
 #search {
 	width: 250px;
 	margin-right: 10px;
@@ -45,7 +46,26 @@
 	position: absolute;
 }
 
-
-#categotyContainer {
+/* 전체 상품 리스트를 가장 위에 보이기 위해 만듦. */
+#bottomContainer {
 	positon :relative;
+}
+
+/* 화장품 대표 이미지(= 커버 이미지) */
+#coverImg {
+	width: 150px;
+	height: 150px;
+}
+
+/* 화장품 컨테이너 */
+#cosmetic_container {
+	width: 1000px;
+}
+
+/* 화장품 각각의 div */
+#cosmetic_box {
+	width: 33%;
+	height: 260px;
+	float: left;
+	border: solid 1px red;
 }
