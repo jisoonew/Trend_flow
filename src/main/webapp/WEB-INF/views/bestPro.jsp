@@ -185,7 +185,23 @@
   </li>
 </ul>
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">첫번째 페이지</div>
+  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+  <c:forEach var="cosmetic" items="${cosmeticList}">
+  <c:forEach var="coverImage" items="${coverImg}">
+                <%-- 이미지와 코스메틱의 cosId가 일치하는지 확인 --%>
+                <c:if test="${coverImage.cosId eq cosmetic.cos_id}">
+                    <%-- 일치한다면 이미지 출력 --%>
+                    <img src="${coverImage.imgPath}" alt="코스메틱 이미지">
+                </c:if>
+            </c:forEach>
+  <div>
+  
+            <p>코스메틱 ID: ${cosmetic.cos_id}</p>
+            <p>코스메틱 이름: ${cosmetic.cos_name}</p>
+            <p>코스메틱 가격: ${cosmetic.cos_price}</p>
+        </div>
+  </c:forEach>
+  </div>
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">두번째</div>
   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">세번쨰</div>
   <div class="tab-pane fade" id="pills-final" role="tabpanel" aria-labelledby="pills-final-tab" tabindex="0">...</div>
