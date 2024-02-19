@@ -40,4 +40,10 @@ public class CoverImageService {
     public List<String> findAllImagePaths() {
         return coverImgRepository.findAllImagePaths();
     }
+	
+	// 특정 카테고리의 커버 이미지 출력
+    @Transactional
+    public List<String> findCoverImg(Integer codId) {
+    	return coverImgRepository.findCoverImg(codId);
+    }
 }

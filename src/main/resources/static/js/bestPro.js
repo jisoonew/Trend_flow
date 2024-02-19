@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 $("#all_Product_Bar_backgound").hide();
 $("#all_Product_Bar").hide();

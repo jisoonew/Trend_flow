@@ -13,14 +13,13 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name="cover_image")
-public class CoverImage {
+@Table(name="CATEGORY")
+public class Category {
 	@Id
-	@Column(name = "img_id", unique = true)
-	private Integer imgId;
+	@Column(name = "cate_id", unique = true)
+	/* @GeneratedValue(strategy = GenerationType.IDENTITY) */
+	private Integer cate_id;
 	
-	@Column(name = "cos_id")
-	private Integer cosId;
-	
-	private String imgPath;
+	@Column(name = "cate_name")
+	private String cate_name;
 }

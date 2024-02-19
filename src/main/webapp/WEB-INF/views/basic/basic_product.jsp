@@ -5,14 +5,10 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="css/mainHome.css">
-
-<title>TrendFlow</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>기초</title>
 
 <!-- 부트 스트랩 연결 -->
 <link
@@ -20,23 +16,23 @@
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+<!-- 부트스트랩 CSS만 붙여왔을 때는 드롭다운이 작동을 안함, 그래서 부트스르탭 번들 코드를 붙여넣으니까 작동함 -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-	crossorigin="anonymous">
-  </script>
+	crossorigin="anonymous"></script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/mainHome.js"></script>
-</head>
 
+<link rel="stylesheet" href="/css/basic_product.css">
+<script src="${pageContext.request.contextPath}/js/basic_product.js"></script>
+</head>
 <body>
 	<div id="Top_Container">
 			<!-- 로고 사진 누르면 홈으로 돌아오기 -->
 			<a class="navbar-brand" href="/Trend_flow"> <img
-				src="img/logo_remove.png" id="logo_remove">
+				src="/img/logo_remove.png" id="logo_remove">
 			</a>
 
 			<!-- 이름 출력 -->
@@ -143,6 +139,7 @@
     <a href="/basic/basic_product">기초</a>
 </div>
 
+
 	<!-- 오프 캔버스 버튼 누르면 나오는 작은 페이지 구성 -->
 	<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
 		aria-labelledby="offcanvasRightLabel">
@@ -159,11 +156,9 @@
       <path fill-rule="evenodd"
 					d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
     </svg>
-			<label id="userName_label"><c:out
-					value="${sessionScope.userName}" /></label> <a href="myData"
-				style="color: black;"> <svg xmlns="http://www.w3.org/2000/svg"
-					width="25" height="25" fill="currentColor" class="bi bi-gear"
-					viewBox="0 0 16 16">
+			<label>ㅇㅇㅇ님</label> <a href="myData.html" style="color: black;">
+				<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+					fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
       <path
 						d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
       <path
@@ -203,103 +198,74 @@
 				</a>
 			</div>
 			<hr>
-			<form action="/logout" method="post">
-				<button id="logout" type="submit" class="btn btn-light bg-danger"
-					style="color: white;" onclick="logout();">로그아웃</button>
+			<form class="d-flex position-absolute bottom-0 end-0 mb-4 me-4"
+				role="logout">
+				<button id="logout" type="button" class="btn btn-light bg-danger"
+					style="color: white;">로그아웃</button>
 			</form>
 		</div>
 	</div>
-	<!-- ==================================== 여기까지 네비게이션 바 내용이였음 ======================================== -->
-<div id="categotyContainer">
-	<!-- 캐러셀 -->
-	<div id="carouselExampleCaptions" class="carousel slide">
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="0" class="active" aria-current="true"
-				aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#carouselExampleCaptions"
-				data-bs-slide-to="2" aria-label="Slide 3"></button>
+	<!-- ==================================== 여기까지 상단 네비게이션 바 내용이였음 ======================================== -->
+	<div id="bottomContainer">
+		<div id="category_name">홈 > 기초</div>
+
+		<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+			<li class="category-nav-item" role="presentation">
+				<button class="nav-link categoryBtn active" id="pills-home-tab"
+					data-bs-toggle="pill" data-bs-target="#pills-home" type="button"
+					role="tab" aria-controls="pills-home" aria-selected="true">전체</button>
+			</li>
+			<li class="category-nav-item" role="presentation">
+				<button class="nav-link categoryBtn" id="pills-profile-tab"
+					data-bs-toggle="pill" data-bs-target="#pills-profile" type="button"
+					role="tab" aria-controls="pills-profile" aria-selected="false">기초</button>
+			</li>
+			<li class="category-nav-item" role="presentation">
+				<button class="nav-link categoryBtn" id="pills-contact-tab"
+					data-bs-toggle="pill" data-bs-target="#pills-contact" type="button"
+					role="tab" aria-controls="pills-contact" aria-selected="false">메이크업</button>
+			</li>
+			<li class="category-nav-item" role="presentation">
+				<button class="nav-link categoryBtn" id="pills-final-tab"
+					data-bs-toggle="pill" data-bs-target="#pills-final" type="button"
+					role="tab" aria-controls="pills-final" aria-selected="false">바디/헤어</button>
+			</li>
+		</ul>
+		<div class="tab-content" id="pills-tabContent">
+			<div class="tab-pane fade show active" id="pills-home"
+				role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+				
+				<!-- 화장품 정보 불러오기 -->
+				<div id="cosmetic_container">
+				<c:forEach var="cosmetic" items="${cosmeticList}">
+				<div id="cosmetic_box">
+					<c:forEach var="coverImage" items="${coverImg}">
+						<%-- 이미지와 코스메틱의 cosId가 일치하는지 확인 --%>
+						<c:if test="${coverImage.cosId eq cosmetic.cos_id}">
+							<%-- 일치한다면 이미지 출력 --%>
+							<img src="/${coverImage.imgPath}" id="coverImg" alt="코스메틱 이미지">
+						</c:if>
+					</c:forEach>
+					<div>
+						<!-- 화장품명 -->
+						<p>${cosmetic.cos_name}</p>
+						
+						<!-- 가격 -->
+						<p>${cosmetic.cos_price}</p>
+					</div>
+					</div>
+				</c:forEach>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
+				aria-labelledby="pills-profile-tab" tabindex="0">두번째</div>
+			<div class="tab-pane fade" id="pills-contact" role="tabpanel"
+				aria-labelledby="pills-contact-tab" tabindex="0">세번쨰</div>
+			<div class="tab-pane fade" id="pills-final" role="tabpanel"
+				aria-labelledby="pills-final-tab" tabindex="0">...</div>
 		</div>
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-				<img src="img/fashion&style.png" class="d-block w-100" alt="..."
-					id="carousel_img">
-			</div>
-			<div class="carousel-item">
-				<img src="img/fashion&style2.jpg" class="d-block w-100" alt="..."
-					id="carousel_img">
-			</div>
-			<div class="carousel-item">
-				<img src="img/fashion&style3.jpg" class="d-block w-100" alt="..."
-					id="carousel_img">
-			</div>
-		</div>
-		<button class="carousel-control-prev" type="button"
-			data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-			<span class="carousel-control-prev-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Previous</span>
-		</button>
-		<button class="carousel-control-next" type="button"
-			data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-			<span class="carousel-control-next-icon" aria-hidden="true"></span> <span
-				class="visually-hidden">Next</span>
-		</button>
 	</div>
-</div>
-	<!-- 최신 레시피 캐러셀 -->
-	<!-- <h3 style="color:black; text-align: center;">
-
-    &lt;신제품&gt;
-    
-  </h3>
-  <br>
-  <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
-    <div class="carousel-indicators" style="color:white ;">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
-        aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
-        aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
-        aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner" style="text-align: center ;">
-
-      <div class="carousel-item active">
-        <img src="소곱창 구이.jpg" width="900" height="600" alt="...">
-        <div class="carousel-caption">
-          <h5 style="color:white ;">소곱창 구이</h5>
-          <p style="color:white ;">지글지글 맛있는 소곱창 구이</p>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <img src="알탕.jpg" width="900" height="600" alt="...">
-        <div class="carousel-caption">
-          <h5 style="color:white ;">알탕</h5>
-          <p style="color:white ;">해장하기 딱 좋은 얼큰 시원 알탕</p>
-        </div>
-      </div>
-
-      <div class="carousel-item">
-        <img src="육회.jpg" width="900" height="600" alt="...">
-        <div class="carousel-caption">
-          <h5 style="color:white ;">육회</h5>
-          <p style="color:white ;">입에서 살살 녹는 육회</p>
-        </div>
-      </div>
-    </div>
-
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">이전</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">다음</span>
-    </button>
-  </div> -->
+	<!-- ==================================== 여기까지 상단 2번째 네비게이션 바 내용이였음 ======================================== -->
 
 </body>
 </html>
