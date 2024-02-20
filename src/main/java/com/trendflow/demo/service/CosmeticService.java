@@ -45,4 +45,9 @@ public class CosmeticService {
         return cosmeticRepository.findByCategoryId(categoryId);
     }
     
+// 특정 화장품 정보
+    public List<Cosmetic> findCosmeticsByCosId(Integer cosId) {
+        return cosmeticRepository.findByCosId(cosId);
+    }
+    
 }

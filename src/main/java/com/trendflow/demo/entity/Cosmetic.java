@@ -50,4 +50,18 @@ public class Cosmetic {
 	@ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "cate_id", insertable = false, updatable = false)
     private Category category;
+	
+	@Override
+	public String toString() {
+	    return "Cosmetic{" +
+	            "cos_id=" + cos_id +
+	            ", cos_name=" + cos_name +
+	            ", cos_price=" + cos_price +
+	            ", cos_volume=" + cos_volume +
+	            ", cos_delivery_data=" + cos_delivery_data +
+	            ", cos_description= " + cos_description+
+	            ", brand_id= "+brand_id+
+	            ", category_id="+ category_id +
+	            "}";
+	}
 }

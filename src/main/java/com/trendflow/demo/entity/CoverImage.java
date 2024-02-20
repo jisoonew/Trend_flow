@@ -23,4 +23,13 @@ public class CoverImage {
 	private Integer cosId;
 	
 	private String imgPath;
+	
+	@Override
+	public String toString() {
+	    return "CoverImage{" +
+	            "imgId=" + imgId +
+	            ", cosId=" + cosId +
+	            ", imgPath=" + imgPath +
+	            "}";
+	}
 }

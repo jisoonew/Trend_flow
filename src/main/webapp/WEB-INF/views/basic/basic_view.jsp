@@ -10,7 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>기초</title>
+<title>여기는 뷰</title>
 
 <!-- 부트 스트랩 연결 -->
 <link
@@ -38,15 +38,15 @@
 			</a>
 
 			<!-- 이름 출력 -->
-			<% if((boolean) request.getAttribute("loginInfo")) { %>
+<%-- 			<% if((boolean) request.getAttribute("loginInfo")) { %>
 			<label id="userName_label"><c:out value="${sessionScope.userName}" /></label>
 			<% } else { %>
 			<label id="userName_label"></label>
-			<% } %>
+			<% } %> --%>
 
 			<!-- 오른쪽 상단에 내 정보 확인할 수 있는 오프캔버스 버튼 -->
 			<!-- 로그인을 하지 않은 상태면 로그인 버튼으로 출력하고 로그인을 한 상태라면 내 정보 버튼으로 출력 -->
-			<% if((boolean) request.getAttribute("loginInfo")) { %>
+<%-- 			<% if((boolean) request.getAttribute("loginInfo")) { %>
 			<button class="btn btn-primary btn-danger" type="button"
 				data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
 				aria-controls="offcanvasRight" id="mybtn">
@@ -59,7 +59,7 @@
 			<% } else { %>
 			<button type="button" class="btn btn-outline-primary"
 				onclick="location.href='login'">로그인</button>
-			<% } %>
+			<% } %> --%>
 	</div>
 	
 	
@@ -239,19 +239,19 @@
 				
 				<!-- 화장품 정보 불러오기 -->
 				<div id="cosmetic_container">
-				<c:forEach var="cosmetic" items="${basic_product}">
+				<c:forEach var="cosmetic" items="${basic_data}">
 				<div id="cosmetic_box">
-					<c:forEach var="coverImage" items="${coverImg}">
-						<%-- 이미지와 코스메틱의 cosId가 일치하는지 확인 --%>
+					<%-- <c:forEach var="coverImage" items="${coverImg}">
+						이미지와 코스메틱의 cosId가 일치하는지 확인
 						<c:if test="${coverImage.cosId eq cosmetic.cos_id}">
-							<%-- 일치한다면 이미지 출력 --%>
+							일치한다면 이미지 출력
 							<img src="/${coverImage.imgPath}" id="coverImg" alt="코스메틱 이미지">
 						</c:if>
-					</c:forEach>
+					</c:forEach> --%>
 					<div id="cosmetic_content">
 						<!-- 화장품명 -->
 						<div id="cos_name_container">
-						<p id="cos_name"><a href="/basic/basic_product/view?cos_id=${cosmetic.cos_id}">${cosmetic.cos_name}</a></p>
+						<p id="cos_name"><a>${cosmetic.cos_name}</a></p>
 						</div>
 						
 						<!-- 가격 -->

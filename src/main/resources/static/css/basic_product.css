@@ -92,21 +92,51 @@
 
 /* 화장품 대표 이미지(= 커버 이미지) */
 #coverImg {
-	width: 150px;
-	height: 150px;
+	width: 250px;
+	height: 250px;
+	margin: auto;
+    display: block;
 }
+
+/* 커버 사진 밑에 정보들 */
+#cosmetic_content {
+	width: 250px;
+	margin-left: 25px;
+	margin-right: 25px;
+	margin-top: 5px;
+}
+
+#cos_name_container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  
+}
+
+/* 화장품명 */
+#cos_name {
+  line-height: 1.5; /* 글자 높이 설정 */
+  font-weight: 500;
+  margin: 0; /* margin을 0으로 설정하여 간격을 없앱니다. */
+}
+
+#cos_price_container {
+/* 수직 중앙 정렬하기 */
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+}
+
 
 /* 화장품 컨테이너 */
 #cosmetic_container {
-	width: 1000px;
 }
 
 /* 화장품 각각의 div */
 #cosmetic_box {
-	width: 33%;
+	width: 25%;
 	height: 260px;
 	float: left;
-	border: solid 1px red;
 }
 
 /* 홈 > 기초 */

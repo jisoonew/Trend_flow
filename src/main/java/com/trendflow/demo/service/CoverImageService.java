@@ -43,7 +43,7 @@ public class CoverImageService {
 	
 	// 특정 카테고리의 커버 이미지 출력
     @Transactional
-    public List<String> findCoverImg(Integer codId) {
+    public List<CoverImageDto> findCoverImg(Integer codId) {
     	return coverImgRepository.findCoverImg(codId);
     }
 }

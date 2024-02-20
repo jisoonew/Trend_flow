@@ -12,4 +12,6 @@ public interface CosmeticRepository extends JpaRepository<Cosmetic, Integer> {
 	@Query("SELECT c FROM Cosmetic c JOIN FETCH c.category WHERE c.category_id = :categoryId")
     List<Cosmetic> findByCategoryId(Integer categoryId);
 	
+	@Query("SELECT c FROM Cosmetic c WHERE c.cos_id = :cosId")
+    List<Cosmetic> findByCosId(Integer cosId);
 }
